@@ -138,7 +138,7 @@ function saveCurrentScore() {
 saveButton.addEventListener("click", function (event) {
   event.preventDefault();
   saveCurrentScore();
-  renderScores();
+  renderPreviousScores();
 });
 
 
@@ -150,6 +150,7 @@ function goToScores () {
   resultPage.style.visibility = 'hidden';
   quizPage.style.visibility = 'hidden';
   scoresPage.style.visibility = 'visible';
+  renderPreviousScores();
 }
 
 // Click link will go to scores page
@@ -157,3 +158,17 @@ viewScoreBtn.addEventListener("click", function (event) {
   event.preventDefault();
   goToScores();
 });
+
+/////////////////////////
+
+var scoresEl = document.querySelector("#scoresEl");
+
+function renderPreviousScores() {
+  var previousScores = JSON.parse(localStorage.getItem("userInfo"));
+  if (previousScores !== null) {
+    scoresEl.textContent = previousScores.userInitials + ": " + previousScores.userScore;
+  } else {
+    return;
+  }
+}
+
