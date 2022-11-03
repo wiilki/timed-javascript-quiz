@@ -53,10 +53,10 @@ function startQuiz() {
     resultPage.style.visibility = 'hidden';
     quizPage.style.visibility = 'visible';
     askQuestion.textContent = questionArray[questionIndex].question;
-    btnA;
-    btnB;
-    btnC;
-    btnD;
+    btnA.textContent = questionArray[questionIndex].choices[0];
+    btnB.textContent = questionArray[questionIndex].choices[1];
+    btnC.textContent = questionArray[questionIndex].choices[2];
+    btnD.textContent = questionArray[questionIndex].choices[3];
   }
 
   startBtn.addEventListener("click", function (event) {
