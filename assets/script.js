@@ -115,6 +115,23 @@ startOverBtn.addEventListener("click", function (event) {
 /////////////////////
 
 
+var userInitials = document.querySelector("#userInitials");
+var saveButton = document.querySelector("#saveBtn");
+
+function saveCurrentScore() {
+  // Create userInfo object from user input + user's score
+  var userInfo = {
+    userInitials: userInitials.value.trim(),
+    userScore: currentScore.valueOf()
+  };
+  // Save object to local storage
+    localStorage.setItem("userInfo", JSON.stringify(userInfo));
+  }
+
+  saveButton.addEventListener("click", function (event) {
+    event.preventDefault();
+    saveCurrentScore();
+  });
 
 
 
