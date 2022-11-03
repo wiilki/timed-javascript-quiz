@@ -14,6 +14,7 @@ var userResults = document.querySelector('#userResults');
 var startOverBtn = document.querySelector('#startOverBtn');
 var userInitials = document.querySelector("#userInitials");
 var saveButton = document.querySelector("#saveBtn");
+var viewScoreBtn = document.querySelector('#viewScoreBtn')
 var questionIndex = 0;
 var currentScore = 0;
 
@@ -143,8 +144,7 @@ saveButton.addEventListener("click", function (event) {
 
 // ********************* Scores Page *********************
 
-var viewScoreBtn = document.querySelector('#viewScoreBtn')
-
+// Hides all pages except scoresPage
 function goToScores () {
   startPage.style.visibility = 'hidden';
   resultPage.style.visibility = 'hidden';
@@ -152,6 +152,7 @@ function goToScores () {
   scoresPage.style.visibility = 'visible';
 }
 
+// Click link will go to scores page
 viewScoreBtn.addEventListener("click", function (event) {
   event.preventDefault();
   goToScores();
