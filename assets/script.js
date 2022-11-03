@@ -81,3 +81,18 @@ function goToResults() {
     event.preventDefault();
     startQuiz();
   });
+
+var possibleAnsDiv = document.querySelector('#possibleAnsDiv');
+var isCorrect = document.querySelector('#isCorrect');
+
+  // Event listener for each answer choice
+possibleAnsDiv.addEventListener("click", function (event) {
+  event.preventDefault();
+  var userChoice = event.target;
+  // If user chooses correct choice, correctAns count will increment
+  if (userChoice === questionArray[questionIndex].answer) {
+    isCorrect.textContent = "RIGHT";
+  } else {
+    isCorrect.textContent = "WRONG";
+  }
+});
