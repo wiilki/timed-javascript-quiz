@@ -70,6 +70,13 @@ function nextQuestion() {
   }
 }
 
+// Makes Results Page appear
+function goToResults() {
+  quizPage.style.visibility = 'hidden';
+  resultPage.style.visibility = 'visible';
+}
+
+// Click will start quiz
   startBtn.addEventListener("click", function (event) {
     event.preventDefault();
     startQuiz();
