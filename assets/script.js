@@ -11,6 +11,7 @@ var btnD = document.querySelector("#btnD");
 var possibleAnsDiv = document.querySelector('#possibleAnsDiv');
 var isCorrect = document.querySelector('#isCorrect');
 var questionIndex = 0;
+var currentScore = 0;
 
 // Array of questions and answers
 var questionArray = [
@@ -70,10 +71,14 @@ function nextQuestion() {
   }
 }
 
+
+var userResults = document.querySelector('#userResults');
+
 // Makes Results Page appear
 function goToResults() {
   quizPage.style.visibility = 'hidden';
   resultPage.style.visibility = 'visible';
+  userResults.textContent = currentScore;
 }
 
 // Click will start quiz
@@ -96,4 +101,3 @@ possibleAnsDiv.addEventListener("click", function (event) {
   nextQuestion();
 });
 
-var currentScore = 0;
