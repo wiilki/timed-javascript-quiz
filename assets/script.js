@@ -10,6 +10,7 @@ var btnC = document.querySelector("#btnC");
 var btnD = document.querySelector("#btnD");
 var possibleAnsDiv = document.querySelector('#possibleAnsDiv');
 var isCorrect = document.querySelector('#isCorrect');
+var userResults = document.querySelector('#userResults');
 var questionIndex = 0;
 var currentScore = 0;
 
@@ -51,7 +52,7 @@ scoresPage.style.visibility = 'hidden';
 function startQuiz() {
   startPage.style.visibility = 'hidden';
   resultPage.style.visibility = 'hidden';
-  resultPage.style.visibility = 'hidden';
+  scoresPage.style.visibility = 'hidden';
   quizPage.style.visibility = 'visible';
   askQuestion.textContent = questionArray[questionIndex].question;
   btnA.textContent = questionArray[questionIndex].choices[0];
@@ -71,15 +72,13 @@ function nextQuestion() {
   }
 }
 
-
-var userResults = document.querySelector('#userResults');
-
 // Makes Results Page appear
 function goToResults() {
   quizPage.style.visibility = 'hidden';
   resultPage.style.visibility = 'visible';
   userResults.textContent = currentScore;
 }
+
 
 // Click will start quiz
 startBtn.addEventListener("click", function (event) {
@@ -101,3 +100,17 @@ possibleAnsDiv.addEventListener("click", function (event) {
   nextQuestion();
 });
 
+/////////////////////
+
+function reStartQuiz() {
+  questionIndex = 0;
+  currentScore = 0;
+  startQuiz();
+}
+
+var startOverBtn = document.querySelector('#startOverBtn');
+
+startOverBtn.addEventListener("click", function (event) {
+  event.preventDefault();
+  reStartQuiz();
+});
