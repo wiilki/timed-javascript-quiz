@@ -114,7 +114,6 @@ startOverBtn.addEventListener("click", function (event) {
 
 /////////////////////
 
-
 var userInitials = document.querySelector("#userInitials");
 var saveButton = document.querySelector("#saveBtn");
 
