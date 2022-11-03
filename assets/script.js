@@ -46,6 +46,8 @@ var questionArray = [
   },
 ];
 
+// ********************* Start Page *********************
+
 // Start by hiding the all pages except Start Page
 quizPage.style.visibility = 'hidden';
 resultPage.style.visibility = 'hidden';
@@ -69,6 +71,9 @@ startBtn.addEventListener("click", function (event) {
   event.preventDefault();
   startQuiz();
 });
+
+
+// ********************* Quiz Page *********************
 
 // Moves to next index of questions then recalls startQuiz func
 function nextQuestion() {
@@ -94,6 +99,9 @@ possibleAnsDiv.addEventListener("click", function (event) {
   }
   nextQuestion();
 });
+
+
+// ********************* Results Page *********************
 
 // Makes Results Page appear
 function goToResults() {
@@ -129,7 +137,22 @@ function saveCurrentScore() {
 saveButton.addEventListener("click", function (event) {
   event.preventDefault();
   saveCurrentScore();
+  renderScores();
 });
 
 
+// ********************* Scores Page *********************
 
+var viewScoreBtn = document.querySelector('#viewScoreBtn')
+
+function goToScores () {
+  startPage.style.visibility = 'hidden';
+  resultPage.style.visibility = 'hidden';
+  quizPage.style.visibility = 'hidden';
+  scoresPage.style.visibility = 'visible';
+}
+
+viewScoreBtn.addEventListener("click", function (event) {
+  event.preventDefault();
+  goToScores();
+});
