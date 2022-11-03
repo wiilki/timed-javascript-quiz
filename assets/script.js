@@ -61,12 +61,12 @@ function startQuiz() {
 
   // Moves to next index of questions then recalls startQuiz func
 function nextQuestion() {
-  index++;
+  questionIndex++;
   if (questionIndex < questionArray.length) {
     startQuiz();
   } else {
     // Goes to results page
-    userResults();
+    goToResults();
   }
 }
 
@@ -95,4 +95,5 @@ possibleAnsDiv.addEventListener("click", function (event) {
   } else {
     isCorrect.textContent = "WRONG";
   }
+  nextQuestion();
 });
