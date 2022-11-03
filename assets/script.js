@@ -12,6 +12,8 @@ var possibleAnsDiv = document.querySelector('#possibleAnsDiv');
 var isCorrect = document.querySelector('#isCorrect');
 var userResults = document.querySelector('#userResults');
 var startOverBtn = document.querySelector('#startOverBtn');
+var userInitials = document.querySelector("#userInitials");
+var saveButton = document.querySelector("#saveBtn");
 var questionIndex = 0;
 var currentScore = 0;
 
@@ -107,15 +109,11 @@ function reStartQuiz() {
   startQuiz();
 }
 
+// Event listener for start over button
 startOverBtn.addEventListener("click", function (event) {
   event.preventDefault();
   reStartQuiz();
 });
-
-/////////////////////
-
-var userInitials = document.querySelector("#userInitials");
-var saveButton = document.querySelector("#saveBtn");
 
 function saveCurrentScore() {
   // Create userInfo object from user input + user's score
@@ -124,13 +122,14 @@ function saveCurrentScore() {
     userScore: currentScore.valueOf()
   };
   // Save object to local storage
-    localStorage.setItem("userInfo", JSON.stringify(userInfo));
-  }
+  localStorage.setItem("userInfo", JSON.stringify(userInfo));
+}
 
-  saveButton.addEventListener("click", function (event) {
-    event.preventDefault();
-    saveCurrentScore();
-  });
+// Event listener for save button
+saveButton.addEventListener("click", function (event) {
+  event.preventDefault();
+  saveCurrentScore();
+});
 
 
 
