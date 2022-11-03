@@ -25,12 +25,12 @@
                 <li>Enter rules here;</li>
                 <li>Enter rules here;</li>
             </ul>
-            <button id="startButton">Start</button>
+            <button id="startBtn">Start</button>
         </section>
 
         <section id="quizPage">
             <!-- Questions -->
-            <div id="questionDiv">Question</div>
+            <div id="questionDiv">Question #</div>
             <!-- Answer choices -->
             <div id="possibleAnsDiv">
                 <button id="btnA">A: possible answer</button>
@@ -41,6 +41,16 @@
             <!-- Continue button -->
             <button id="nextBtn">Next</button>
             <p id="isCorrect">That's right/wrong</p>
+        </section>
+
+        <section id="resultPage">
+            <h1>ALL DONE!</h1>
+            <label for="userResultsDiv">Your score: </label>
+            <div id="userResults"></div>
+            <label for="userInitials">Enter initials: </label>
+            <input type="text" id="userInitials" placeholder="Initials here">
+            <button id="saveBtn">Submit</button>
+            <button id="startOver">Start Over!</button>
         </section>
 
     </main>
