@@ -59,6 +59,17 @@ function startQuiz() {
     btnD.textContent = questionArray[questionIndex].choices[3];
   }
 
+  // Moves to next index of questions then recalls startQuiz func
+function nextQuestion() {
+  index++;
+  if (questionIndex < questionArray.length) {
+    startQuiz();
+  } else {
+    // Goes to results page
+    userResults();
+  }
+}
+
   startBtn.addEventListener("click", function (event) {
     event.preventDefault();
     startQuiz();
