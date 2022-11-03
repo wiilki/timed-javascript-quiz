@@ -89,8 +89,11 @@ possibleAnsDiv.addEventListener("click", function (event) {
   // If user chooses correct choice or wrong choice message
   if (userChoice === questionArray[questionIndex].answer) {
     isCorrect.textContent = "RIGHT";
+    currentScore++;
   } else {
     isCorrect.textContent = "WRONG";
   }
   nextQuestion();
 });
+
+var currentScore = 0;
