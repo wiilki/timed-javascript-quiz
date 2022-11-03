@@ -11,6 +11,7 @@ var btnD = document.querySelector("#btnD");
 var possibleAnsDiv = document.querySelector('#possibleAnsDiv');
 var isCorrect = document.querySelector('#isCorrect');
 var userResults = document.querySelector('#userResults');
+var startOverBtn = document.querySelector('#startOverBtn');
 var questionIndex = 0;
 var currentScore = 0;
 
@@ -61,6 +62,12 @@ function startQuiz() {
   btnD.textContent = questionArray[questionIndex].choices[3];
 }
 
+// Click will start quiz
+startBtn.addEventListener("click", function (event) {
+  event.preventDefault();
+  startQuiz();
+});
+
 // Moves to next index of questions then recalls startQuiz func
 function nextQuestion() {
   questionIndex++;
@@ -71,20 +78,6 @@ function nextQuestion() {
     goToResults();
   }
 }
-
-// Makes Results Page appear
-function goToResults() {
-  quizPage.style.visibility = 'hidden';
-  resultPage.style.visibility = 'visible';
-  userResults.textContent = currentScore;
-}
-
-
-// Click will start quiz
-startBtn.addEventListener("click", function (event) {
-  event.preventDefault();
-  startQuiz();
-});
 
 // Event listener for each answer choice
 possibleAnsDiv.addEventListener("click", function (event) {
@@ -100,17 +93,28 @@ possibleAnsDiv.addEventListener("click", function (event) {
   nextQuestion();
 });
 
-/////////////////////
+// Makes Results Page appear
+function goToResults() {
+  quizPage.style.visibility = 'hidden';
+  resultPage.style.visibility = 'visible';
+  userResults.textContent = currentScore;
+}
 
+// Resets questionIndex and user's score to 0 then runs startQuiz()
 function reStartQuiz() {
   questionIndex = 0;
   currentScore = 0;
   startQuiz();
 }
 
-var startOverBtn = document.querySelector('#startOverBtn');
-
 startOverBtn.addEventListener("click", function (event) {
   event.preventDefault();
   reStartQuiz();
 });
+
+/////////////////////
+
+
+
+
+
