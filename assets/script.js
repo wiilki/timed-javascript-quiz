@@ -15,6 +15,7 @@ var startOverBtn = document.querySelector('#startOverBtn');
 var userInitials = document.querySelector("#userInitials");
 var saveButton = document.querySelector("#saveBtn");
 var viewScoreBtn = document.querySelector('#viewScoreBtn')
+var scoresEl = document.querySelector("#scoresEl");
 var questionIndex = 0;
 var currentScore = 0;
 
@@ -47,7 +48,7 @@ var questionArray = [
   },
 ];
 
-// ********************* Start Page *********************
+// ********************************* Start Page *********************************
 
 // Start by hiding the all pages except Start Page
 quizPage.style.visibility = 'hidden';
@@ -74,7 +75,7 @@ startBtn.addEventListener("click", function (event) {
 });
 
 
-// ********************* Quiz Page *********************
+// ********************************* Quiz Page *********************************
 
 // Moves to next index of questions then recalls startQuiz func
 function nextQuestion() {
@@ -102,7 +103,7 @@ possibleAnsDiv.addEventListener("click", function (event) {
 });
 
 
-// ********************* Results Page *********************
+// ********************************* Results Page *********************************
 
 // Makes Results Page appear
 function goToResults() {
@@ -131,7 +132,7 @@ function saveCurrentScore() {
     userScore: currentScore.valueOf()
   };
   // Save object to local storage
-  localStorage.setItem("userInfo", JSON.stringify(userInfo));
+  localStorage.addItem("userInfo", JSON.stringify(userInfo));
 }
 
 // Event listener for save button
@@ -142,7 +143,7 @@ saveButton.addEventListener("click", function (event) {
 });
 
 
-// ********************* Scores Page *********************
+// ********************************* Scores Page *********************************
 
 // Hides all pages except scoresPage
 function goToScores () {
@@ -156,13 +157,12 @@ function goToScores () {
 // Click link will go to scores page
 viewScoreBtn.addEventListener("click", function (event) {
   event.preventDefault();
+
   goToScores();
 });
 
-/////////////////////////
 
-var scoresEl = document.querySelector("#scoresEl");
-
+// Renders previous scores if they exist
 function renderPreviousScores() {
   var previousScores = JSON.parse(localStorage.getItem("userInfo"));
   if (previousScores !== null) {
@@ -171,4 +171,4 @@ function renderPreviousScores() {
     return;
   }
 }
-
+ 
