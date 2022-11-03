@@ -17,6 +17,7 @@
     </header>
 
     <main>
+        <!-- Start Page -->
         <section id="startPage">
             <h1>Rules of the Quiz</h1>
             <ul>
@@ -28,21 +29,19 @@
             <button id="startBtn">Start</button>
         </section>
 
+        <!-- Quiz Page -->
         <section id="quizPage">
-            <!-- Questions -->
             <div id="questionDiv">Question #</div>
-            <!-- Answer choices -->
             <div id="possibleAnsDiv">
                 <button id="btnA">A: possible answer</button>
                 <button id="btnB">B: possible answer</button>
                 <button id="btnC">C: possible answer</button>
                 <button id="btnD">D: possible answer</button>
             </div>
-            <!-- Continue button -->
-            <button id="nextBtn">Next</button>
             <p id="isCorrect">That's right/wrong</p>
         </section>
 
+        <!-- Results Page -->
         <section id="resultPage">
             <h1>ALL DONE!</h1>
             <label for="userResultsDiv">Your score: </label>
@@ -51,6 +50,14 @@
             <input type="text" id="userInitials" placeholder="Initials here">
             <button id="saveBtn">Submit</button>
             <button id="startOver">Start Over!</button>
+        </section>
+
+        <!-- High Score Page -->
+        <section id="scoresPage">
+            <h1>Previous scores: </h1>
+            <ul id="scoresEL"></ul>
+            <button id="backBtn">Go Back</button>
+            <button id="clearBtn">Clear High Scores</button>
         </section>
 
     </main>
