@@ -127,18 +127,20 @@ startOverBtn.addEventListener("click", function (event) {
 
 function saveCurrentScore() {
   // Create userInfo object from user input + user's score
+ var initialsText = initials.value.trim();
   var userInfo = {
-    userInitials: initials.value.trim(),
+    userInitials: initialsText,
     userScore: currentScore.valueOf()
   };
   // Save object to local storage
-  localStorage.setItem("userInfo", JSON.stringify(userInfo));
+  localStorage.setItem("scoresArray", JSON.stringify(userInfo));
 }
 
 // Event listener for save button
 saveButton.addEventListener("click", function (event) {
   event.preventDefault();
   saveCurrentScore();
+  renderScoresArray();
 });
 
 
@@ -150,23 +152,52 @@ function goToScores () {
   resultPage.style.visibility = 'hidden';
   quizPage.style.visibility = 'hidden';
   scoresPage.style.visibility = 'visible';
-  renderPreviousScores();
+  renderScoresArray();
 }
 
 // Click link will go to scores page
 viewScoreBtn.addEventListener("click", function (event) {
   event.preventDefault();
   goToScores();
+  renderScoresArray();
 });
 
 
-// Renders previous scores if they exist
-function renderPreviousScores() {
-  var previousScores = JSON.parse(localStorage.getItem("userInfo"));
-  if (previousScores !== null) {
-    scoresEl.textContent = previousScores.userInitials + ": " + previousScores.userScore;
-  } else {
-    return;
+
+
+
+// Have not added to array yet
+var scoresArray = [];
+ 
+
+function renderScoresArray() {
+  // Clear scoresEl element 
+  scoresEl.innerHTML = "";
+
+  // Render a new li for each todo
+  for (var i = 0; i < scoresArray.length; i++) {
+    var score = scoresArray[i];
+
+    var li = document.createElement("li");
+    li.textContent = score;
+    li.setAttribute("data-index", i);
+
+ 
+    scoresEl.appendChild(li);
   }
 }
- 
+
+function init() {
+  // Get stored scoresArray from localStorage
+  var storedScores = JSON.parse(localStorage.getItem("scoresArray"));
+
+  // If scoresArray were retrieved from localStorage, update the scoresArray array to it
+  if (storedScores !== null) {
+    scoresArray = storedScores;
+  }
+
+  // This is a helper function that will render scoresArray to the DOM
+  renderScoresArray();
+}
+
+init()
