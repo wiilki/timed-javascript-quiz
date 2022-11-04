@@ -3,7 +3,7 @@ var quizPage = document.querySelector("#quizPage");
 var resultPage = document.querySelector("#resultPage");
 var scoresPage = document.querySelector("#scoresPage");
 var startBtn = document.querySelector("#startBtn");
-var askQuestion = document.querySelector("#questionDiv");
+var questionDiv = document.querySelector("#questionDiv");
 var btnA = document.querySelector("#btnA");
 var btnB = document.querySelector("#btnB");
 var btnC = document.querySelector("#btnC");
@@ -13,8 +13,8 @@ var isCorrect = document.querySelector('#isCorrect');
 var userResultsDiv = document.querySelector('#userResultsDiv');
 var startOverBtn = document.querySelector('#startOverBtn');
 var initialsForm = document.querySelector("#initialsForm");
-var initialsInput = document.querySelector("#initialsText");
-var saveButton = document.querySelector("#saveBtn");
+var initialsInput = document.querySelector("#initialsInput");
+var saveBtn = document.querySelector("#saveBtn");
 var viewScoreBtn = document.querySelector('#viewScoreBtn')
 var scoresList = document.querySelector("#scoresList");
 var questionIndex = 0;
@@ -61,7 +61,7 @@ function startQuiz() {
   resultPage.style.visibility = 'hidden';
   scoresPage.style.visibility = 'hidden';
   quizPage.style.visibility = 'visible';
-  askQuestion.textContent = questionArray[questionIndex].question;
+  questionDiv.textContent = questionArray[questionIndex].question;
   btnA.textContent = questionArray[questionIndex].choices[0];
   btnB.textContent = questionArray[questionIndex].choices[1];
   btnC.textContent = questionArray[questionIndex].choices[2];
@@ -72,7 +72,7 @@ function startQuiz() {
 function goToResults() {
   quizPage.style.visibility = 'hidden';
   resultPage.style.visibility = 'visible';
-  userResultsDiv.textContent = currentScore;
+  userResultsDiv.textContent = currentScore.valueOf();
 }
 
 // Hides all pages except scoresPage
