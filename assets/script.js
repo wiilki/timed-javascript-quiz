@@ -10,9 +10,9 @@ var btnC = document.querySelector("#btnC");
 var btnD = document.querySelector("#btnD");
 var possibleAnsDiv = document.querySelector('#possibleAnsDiv');
 var isCorrect = document.querySelector('#isCorrect');
-var userResults = document.querySelector('#userResults');
+var userResultsDiv = document.querySelector('#userResultsDiv');
 var startOverBtn = document.querySelector('#startOverBtn');
-var initials = document.querySelector("#userInitials");
+var userInitials = document.querySelector("#userInitials");
 var saveButton = document.querySelector("#saveBtn");
 var viewScoreBtn = document.querySelector('#viewScoreBtn')
 var scoresEl = document.querySelector("#scoresEl");
@@ -48,7 +48,6 @@ var questionArray = [
   },
 ];
 
-// ********************************* Start Page *********************************
 
 // Start by hiding the all pages except Start Page
 quizPage.style.visibility = 'hidden';
@@ -68,15 +67,6 @@ function startQuiz() {
   btnD.textContent = questionArray[questionIndex].choices[3];
 }
 
-// Click will start quiz
-startBtn.addEventListener("click", function (event) {
-  event.preventDefault();
-  startQuiz();
-});
-
-
-// ********************************* Quiz Page *********************************
-
 // Moves to next index of questions then recalls startQuiz func
 function nextQuestion() {
   questionIndex++;
@@ -87,6 +77,44 @@ function nextQuestion() {
     goToResults();
   }
 }
+
+// Makes Results Page appear
+function goToResults() {
+  quizPage.style.visibility = 'hidden';
+  resultPage.style.visibility = 'visible';
+  userResultsDiv.textContent = currentScore;
+}
+
+// Hides all pages except scoresPage
+function goToScores () {
+  startPage.style.visibility = 'hidden';
+  resultPage.style.visibility = 'hidden';
+  quizPage.style.visibility = 'hidden';
+  scoresPage.style.visibility = 'visible';
+}
+
+// Resets questionIndex and user's score to 0 then runs startQuiz()
+function reStartQuiz() {
+  questionIndex = 0;
+  currentScore = 0;
+  startQuiz();
+}
+
+function saveCurrentScore() {
+  // Create userInfo object from user input + user's score
+  var userInfo = {
+    userInitials: userInitials.value.trim(),
+    userScore: currentScore.valueOf()
+  };
+  // Save object to local storage
+  localStorage.addItem("userInfo", JSON.stringify(userInfo));
+}
+
+// Click will start quiz
+startBtn.addEventListener("click", function (event) {
+  event.preventDefault();
+  startQuiz();
+});
 
 // Event listener for each answer choice
 possibleAnsDiv.addEventListener("click", function (event) {
@@ -102,102 +130,21 @@ possibleAnsDiv.addEventListener("click", function (event) {
   nextQuestion();
 });
 
-
-// ********************************* Results Page *********************************
-
-// Makes Results Page appear
-function goToResults() {
-  quizPage.style.visibility = 'hidden';
-  resultPage.style.visibility = 'visible';
-  userResults.textContent = currentScore;
-}
-
-// Resets questionIndex and user's score to 0 then runs startQuiz()
-function reStartQuiz() {
-  questionIndex = 0;
-  currentScore = 0;
-  startQuiz();
-}
-
 // Event listener for start over button
 startOverBtn.addEventListener("click", function (event) {
   event.preventDefault();
   reStartQuiz();
 });
 
-function saveCurrentScore() {
-  // Create userInfo object from user input + user's score
- var initialsText = initials.value.trim();
-  var userInfo = {
-    userInitials: initialsText,
-    userScore: currentScore.valueOf()
-  };
-  // Save object to local storage
-  localStorage.setItem("scoresArray", JSON.stringify(userInfo));
-}
-
 // Event listener for save button
 saveButton.addEventListener("click", function (event) {
   event.preventDefault();
   saveCurrentScore();
-  renderScoresArray();
 });
-
-
-// ********************************* Scores Page *********************************
-
-// Hides all pages except scoresPage
-function goToScores () {
-  startPage.style.visibility = 'hidden';
-  resultPage.style.visibility = 'hidden';
-  quizPage.style.visibility = 'hidden';
-  scoresPage.style.visibility = 'visible';
-  renderScoresArray();
-}
 
 // Click link will go to scores page
 viewScoreBtn.addEventListener("click", function (event) {
   event.preventDefault();
   goToScores();
-  renderScoresArray();
 });
 
-
-
-
-
-// Have not added to array yet
-var scoresArray = [];
- 
-
-function renderScoresArray() {
-  // Clear scoresEl element 
-  scoresEl.innerHTML = "";
-
-  // Render a new li for each todo
-  for (var i = 0; i < scoresArray.length; i++) {
-    var score = scoresArray[i];
-
-    var li = document.createElement("li");
-    li.textContent = score;
-    li.setAttribute("data-index", i);
-
- 
-    scoresEl.appendChild(li);
-  }
-}
-
-function init() {
-  // Get stored scoresArray from localStorage
-  var storedScores = JSON.parse(localStorage.getItem("scoresArray"));
-
-  // If scoresArray were retrieved from localStorage, update the scoresArray array to it
-  if (storedScores !== null) {
-    scoresArray = storedScores;
-  }
-
-  // This is a helper function that will render scoresArray to the DOM
-  renderScoresArray();
-}
-
-init()
