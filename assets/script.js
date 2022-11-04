@@ -12,7 +12,7 @@ var possibleAnsDiv = document.querySelector('#possibleAnsDiv');
 var isCorrect = document.querySelector('#isCorrect');
 var userResults = document.querySelector('#userResults');
 var startOverBtn = document.querySelector('#startOverBtn');
-var userInitials = document.querySelector("#userInitials");
+var initials = document.querySelector("#userInitials");
 var saveButton = document.querySelector("#saveBtn");
 var viewScoreBtn = document.querySelector('#viewScoreBtn')
 var scoresEl = document.querySelector("#scoresEl");
@@ -128,18 +128,17 @@ startOverBtn.addEventListener("click", function (event) {
 function saveCurrentScore() {
   // Create userInfo object from user input + user's score
   var userInfo = {
-    userInitials: userInitials.value.trim(),
+    userInitials: initials.value.trim(),
     userScore: currentScore.valueOf()
   };
   // Save object to local storage
-  localStorage.addItem("userInfo", JSON.stringify(userInfo));
+  localStorage.setItem("userInfo", JSON.stringify(userInfo));
 }
 
 // Event listener for save button
 saveButton.addEventListener("click", function (event) {
   event.preventDefault();
   saveCurrentScore();
-  renderPreviousScores();
 });
 
 
@@ -157,7 +156,6 @@ function goToScores () {
 // Click link will go to scores page
 viewScoreBtn.addEventListener("click", function (event) {
   event.preventDefault();
-
   goToScores();
 });
 
