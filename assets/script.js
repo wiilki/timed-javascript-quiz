@@ -12,10 +12,11 @@ var possibleAnsDiv = document.querySelector('#possibleAnsDiv');
 var isCorrect = document.querySelector('#isCorrect');
 var userResultsDiv = document.querySelector('#userResultsDiv');
 var startOverBtn = document.querySelector('#startOverBtn');
-var userInitials = document.querySelector("#userInitials");
+var initialsForm = document.querySelector("#initialsForm");
+var initialsInput = document.querySelector("#initialsText");
 var saveButton = document.querySelector("#saveBtn");
 var viewScoreBtn = document.querySelector('#viewScoreBtn')
-var scoresEl = document.querySelector("#scoresEl");
+var scoresList = document.querySelector("#scoresList");
 var questionIndex = 0;
 var currentScore = 0;
 
@@ -67,6 +68,21 @@ function startQuiz() {
   btnD.textContent = questionArray[questionIndex].choices[3];
 }
 
+// Makes Results Page appear
+function goToResults() {
+  quizPage.style.visibility = 'hidden';
+  resultPage.style.visibility = 'visible';
+  userResultsDiv.textContent = currentScore;
+}
+
+// Hides all pages except scoresPage
+function goToScores() {
+  startPage.style.visibility = 'hidden';
+  resultPage.style.visibility = 'hidden';
+  quizPage.style.visibility = 'hidden';
+  scoresPage.style.visibility = 'visible';
+}
+
 // Moves to next index of questions then recalls startQuiz func
 function nextQuestion() {
   questionIndex++;
@@ -78,21 +94,6 @@ function nextQuestion() {
   }
 }
 
-// Makes Results Page appear
-function goToResults() {
-  quizPage.style.visibility = 'hidden';
-  resultPage.style.visibility = 'visible';
-  userResultsDiv.textContent = currentScore;
-}
-
-// Hides all pages except scoresPage
-function goToScores () {
-  startPage.style.visibility = 'hidden';
-  resultPage.style.visibility = 'hidden';
-  quizPage.style.visibility = 'hidden';
-  scoresPage.style.visibility = 'visible';
-}
-
 // Resets questionIndex and user's score to 0 then runs startQuiz()
 function reStartQuiz() {
   questionIndex = 0;
@@ -100,15 +101,69 @@ function reStartQuiz() {
   startQuiz();
 }
 
-function saveCurrentScore() {
-  // Create userInfo object from user input + user's score
-  var userInfo = {
-    userInitials: userInitials.value.trim(),
-    userScore: currentScore.valueOf()
-  };
-  // Save object to local storage
-  localStorage.addItem("userInfo", JSON.stringify(userInfo));
+
+
+var scoresArray = [];
+
+function renderArray() {
+  scoresList.innerHTML = "";
+
+  // Render a new li for each score
+  for (var i = 0; i < scoresArray.length; i++) {
+    var score = scoresArray[i].value;
+    var li = document.createElement("li");
+    li.textContent = score;
+    li.setAttribute("data-index", i);
+    scoresList.appendChild(li);
+  }
 }
+
+
+function storeScores() {
+  localStorage.setItem("scores", JSON.stringify(scoresArray));
+}
+
+function init() {
+  // Get stored scoresArray from localStorage
+  var storedscoresArray = JSON.parse(localStorage.getItem("scores"));
+  // If scoresArray were retrieved from localStorage, update the scoresArray array to it
+  if (storedscoresArray !== null) {
+    scoresArray = storedscoresArray;
+  }
+  renderArray();
+}
+
+initialsForm.addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  var userInfo = {
+    userInitials: initialsInput.value,
+    userScore: currentScore.valueOf(),
+  };
+
+  // Return from function early if submitted initialsInput is blank
+  if (initialsInput === "") {
+    return;
+  }
+
+  // Add initials and score to scoresArray, clear the input
+  scoresArray.push(userInfo);
+  initialsInput.value = "";
+
+  // Store updated scoresArray in localStorage, re-render the list
+  storeScores();
+  renderArray();
+});
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////
+
+
 
 // Click will start quiz
 startBtn.addEventListener("click", function (event) {
@@ -134,12 +189,6 @@ possibleAnsDiv.addEventListener("click", function (event) {
 startOverBtn.addEventListener("click", function (event) {
   event.preventDefault();
   reStartQuiz();
-});
-
-// Event listener for save button
-saveButton.addEventListener("click", function (event) {
-  event.preventDefault();
-  saveCurrentScore();
 });
 
 // Click link will go to scores page
