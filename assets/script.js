@@ -17,8 +17,12 @@ var initialsInput = document.querySelector("#initialsInput");
 var saveBtn = document.querySelector("#saveBtn");
 var viewScoreBtn = document.querySelector('#viewScoreBtn')
 var scoresList = document.querySelector("#scoresList");
+var timerDiv = document.querySelector('#timerDiv');
+var startingTime = 10;
+var timeLeft = startingTime;
 var questionIndex = 0;
 var currentScore = 0;
+var scoresArray = [];
 
 // Array of questions and answers
 var questionArray = [
@@ -71,6 +75,7 @@ function startQuiz() {
 // Makes Results Page appear
 function goToResults() {
   quizPage.style.visibility = 'hidden';
+  scoresPage.style.visibility = 'hidden';
   resultPage.style.visibility = 'visible';
   userResultsDiv.textContent = currentScore.valueOf();
 }
@@ -103,10 +108,6 @@ function reStartQuiz() {
   startQuiz();
 }
 
-
-
-var scoresArray = [];
-
 function renderArray() {
   scoresList.innerHTML = "";
 
@@ -119,7 +120,6 @@ function renderArray() {
     scoresList.appendChild(li);
   }
 }
-
 
 function storeScores() {
   localStorage.setItem("scores", JSON.stringify(scoresArray));
@@ -135,33 +135,6 @@ function init() {
   renderArray();
 }
 
-initialsForm.addEventListener("submit", function(event) {
-  event.preventDefault();
-
-  var userInfo = {
-    userInitials: initialsInput.value,
-    userScore: currentScore.valueOf(),
-  };
-
-  // Return from function early if submitted initialsInput is blank
-  if (initialsInput === "") {
-    return;
-  }
-
-  // Add initials and score to scoresArray, clear the input
-  scoresArray.push(userInfo);
-  initialsInput.value = "";
-
-  // Store updated scoresArray in localStorage, re-render the list
-  storeScores();
-  renderArray();
-});
-
-
-var timerDiv = document.querySelector('#timerDiv');
-var startingTime =10;
-var timeLeft = startingTime;
-
 // Set time interval to 1s
 function setTime() {
   var timerInterval = setInterval(function () {
@@ -175,10 +148,6 @@ function setTime() {
     }
   }, 1000);
 }
-
-/////////////////////////////////////////////////////////////////
-
-
 
 // Click will start quiz
 startBtn.addEventListener("click", function (event) {
@@ -213,3 +182,34 @@ viewScoreBtn.addEventListener("click", function (event) {
   goToScores();
 });
 
+initialsForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  var userInfo = {
+    userInitials: initialsInput.value,
+    userScore: currentScore.valueOf(),
+  };
+
+  // Return from function early if submitted initialsInput is blank
+  if (initialsInput === "") {
+    return;
+  }
+
+  // Add initials and score to scoresArray, clear the input
+  scoresArray.push(userInfo);
+  initialsInput.value = "";
+
+  // Store updated scoresArray in localStorage, re-render the list
+  storeScores();
+  renderArray();
+});
+
+
+
+
+var goBackBtn = document.querySelector('#backBtn');
+
+goBackBtn.addEventListener("click", function (event) {
+  event.preventDefault();
+  goToResults();
+});
