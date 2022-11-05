@@ -96,8 +96,10 @@ function nextQuestion() {
 
 // Resets questionIndex and user's score to 0 then runs startQuiz()
 function reStartQuiz() {
+  timeLeft = startingTime;
   questionIndex = 0;
   currentScore = 0;
+  setTime();
   startQuiz();
 }
 
@@ -156,10 +158,23 @@ initialsForm.addEventListener("submit", function(event) {
 });
 
 
+var timerDiv = document.querySelector('#timerDiv');
+var startingTime =10;
+var timeLeft = startingTime;
 
-
-
-
+// Set time interval to 1s
+function setTime() {
+  var timerInterval = setInterval(function () {
+    timeLeft--;
+    timerDiv.textContent = timeLeft + " seconds";
+    // Message for if time runs out or user finishes quiz
+    if (timeLeft === 0 || questionIndex >= questionArray.length) {
+      clearInterval(timerInterval);
+      timerDiv.textContent = "YOU'RE ALL DONE!";
+      goToResults();
+    }
+  }, 1000);
+}
 
 /////////////////////////////////////////////////////////////////
 
@@ -169,6 +184,7 @@ initialsForm.addEventListener("submit", function(event) {
 startBtn.addEventListener("click", function (event) {
   event.preventDefault();
   startQuiz();
+  setTime();
 });
 
 // Event listener for each answer choice
