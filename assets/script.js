@@ -18,6 +18,7 @@ var saveBtn = document.querySelector("#saveBtn");
 var viewScoreBtn = document.querySelector('#viewScoreBtn')
 var scoresList = document.querySelector("#scoresList");
 var timerDiv = document.querySelector('#timerDiv');
+var goBackBtn = document.querySelector('#backBtn');
 var startingTime = 10;
 var timeLeft = startingTime;
 var questionIndex = 0;
@@ -82,6 +83,7 @@ function goToResults() {
 
 // Hides all pages except scoresPage
 function goToScores() {
+  init();
   startPage.style.visibility = 'hidden';
   resultPage.style.visibility = 'hidden';
   quizPage.style.visibility = 'hidden';
@@ -127,7 +129,7 @@ function storeScores() {
 
 function init() {
   // Get stored scoresArray from localStorage
-  var storedscoresArray = JSON.parse(localStorage.getItem("scores"));
+  var storedscoresArray = JSON.parse(localStorage.getItem("scoresArray"));
   // If scoresArray were retrieved from localStorage, update the scoresArray array to it
   if (storedscoresArray !== null) {
     scoresArray = storedscoresArray;
@@ -204,12 +206,11 @@ initialsForm.addEventListener("submit", function (event) {
   renderArray();
 });
 
-
-
-
-var goBackBtn = document.querySelector('#backBtn');
-
+// Clicking will make resultsPage
 goBackBtn.addEventListener("click", function (event) {
   event.preventDefault();
   goToResults();
 });
+
+ console.log(scoresArray)
+init();
