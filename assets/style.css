@@ -1,12 +1,44 @@
-header {
-    display: flex;
-    flex-direction: row;
-    padding: 5px;
-    height: 30px;
+nav {
+    padding: 50px;
+    height: 80px;
+    font-weight: bold;
+    font-size: 30px;
 }
 
-main {
-    display: block;
-    margin: 50px;
-    padding: 10px;
-  }
+a {
+    color: black;
+}
+
+.main {
+    align-content: center;
+    padding: 1px;
+}
+
+
+.card {
+    height: 400px;
+    width: 100%;
+    position: fixed;
+    top: 130px;
+    padding: 50px;
+    max-width: 1000px;
+    text-align: center;
+}
+
+#possibleAnsDiv {
+    display: flex;
+    flex-direction: column;
+}
+
+.card div{
+    padding: 20px;
+}
+
+#questionDiv {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#possibleAnsDiv button {
+    margin: 10px;
+}

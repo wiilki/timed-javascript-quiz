@@ -19,7 +19,7 @@ var viewScoreBtn = document.querySelector('#viewScoreBtn')
 var scoresList = document.querySelector("#scoresList");
 var timerDiv = document.querySelector('#timerDiv');
 var goBackBtn = document.querySelector('#backBtn');
-var startingTime = 10;
+var startingTime = 300;
 var timeLeft = startingTime;
 var questionIndex = 0;
 var currentScore = 0;
@@ -28,27 +28,27 @@ var scoresArray = [];
 // Array of questions and answers
 var questionArray = [
   {
-    question: "Question 1?",
+    question: "Enter question #1 here?",
     choices: ["A: isWrong", "B: isRight", "C: isWrong", "D: isWrong"],
     answer: btnB
   },
   {
-    question: "Question 2?",
+    question: "Enter question #2 here?",
     choices: ["A: isRight", "B: isWrong", "C: isWrong", "D: isWrong"],
     answer: btnA
   },
   {
-    question: "Question 3?",
+    question: "Enter question #3 here?",
     choices: ["A: isWrong", "B: isRight", "C: isWrong", "D: isWrong"],
     answer: btnB
   },
   {
-    question: "Question 4?",
+    question: "Enter question #4 here?",
     choices: ["A: isWrong", "B: isWrong", "C: isRight", "D: isWrong"],
     answer: btnC
   },
   {
-    question: "Question 5?",
+    question: "Enter question #5 here?",
     choices: ["A: isWrong", "B: isWrong", "C: isWrong", "D: isRight"],
     answer: btnD
   },

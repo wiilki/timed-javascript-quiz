@@ -13,34 +13,31 @@
 
 <body>
     <!-- Add timer and high score link -->
-
-
-
-    <nav class="navbar bg-light">
+    <nav class="p-3 mb-2 bg-primary text-white">
         <form class="container-fluid justify-content-start">
             <a href="#" id="viewScoreBtn">View High Scores</a>
         </form>
-        <form class="container-fluid justify-content-end">
-            <label for="timerDiv"></label>
-            <div id="timerDiv"></div>
-        </form>
+
     </nav>
 
-    <main>
+    <main class="d-flex p-2">
         <!-- Start Page -->
-        <section id="startPage">
-            <h1>Rules of the Quiz</h1>
+        <section id="startPage" class="card">
+            <h1 id="rulesDiv">Rules of the Quiz</h1>
             <ul>
-                <li>Enter rules here;</li>
-                <li>Enter rules here;</li>
-                <li>Enter rules here;</li>
-                <li>Enter rules here;</li>
+                <li>You start with __ seconds</li>
+                <li> __ seconds will be deducted for wrong answers</li>
+                <li>You can only select an answer once</li>
+                <li>Save you score to view your progress!</li>
             </ul>
             <button id="startBtn">Start</button>
         </section>
 
         <!-- Quiz Page -->
-        <section id="quizPage">
+        <section id="quizPage"  class="card">
+            <form class="container-fluid justify-content-end">
+                <div id="timerDiv"></div>
+            </form>
             <div id="questionDiv">Question #</div>
             <div id="possibleAnsDiv">
                 <button id="btnA">A: possible answer</button>
@@ -52,7 +49,7 @@
         </section>
 
         <!-- Results Page -->
-        <section id="resultPage">
+        <section id="resultPage"  class="card">
             <h1>ALL DONE!</h1>
             <label for="userResultsDiv">Your score: </label>
             <p id="userResultsDiv"></p>
@@ -65,7 +62,7 @@
         </section>
 
         <!-- High Score Page -->
-        <section id="scoresPage">
+        <section id="scoresPage"  class="card">
             <h1>Previous scores: </h1>
             <ul id="scoresList"></ul>
             <button id="backBtn">Go Back</button>
