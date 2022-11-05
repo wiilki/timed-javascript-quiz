@@ -45,17 +45,19 @@
         <section id="resultPage">
             <h1>ALL DONE!</h1>
             <label for="userResultsDiv">Your score: </label>
-            <p id="userResults"></p>
-            <label for="userInitials">Enter initials: </label>
-            <input type="text" id="userInitials" placeholder="Initials here">
-            <button id="saveBtn">Submit</button>
+            <p id="userResultsDiv"></p>
+            <form id="initialsForm">
+                <label for="initialsInput">Enter initials: </label>
+                <input type="text" id="initialsInput" placeholder="Initials here">
+                <button id="saveBtn">Submit</button>
+            </form>
             <button id="startOverBtn">Start Over!</button>
         </section>
 
         <!-- High Score Page -->
         <section id="scoresPage">
             <h1>Previous scores: </h1>
-            <ul id="scoresEl"></ul>
+            <ul id="scoresList"></ul>
             <button id="backBtn">Go Back</button>
             <button id="clearBtn">Clear High Scores</button>
         </section>
