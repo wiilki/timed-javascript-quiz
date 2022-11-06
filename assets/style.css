@@ -1,13 +1,15 @@
 nav {
-    padding: 50px;
-    height: 80px;
+    display: inline-flex;
+    width: 100%;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 20px;
 }
 
 a {
     color: black;
 }
+
+
 
 main {
     display: flex;
@@ -62,7 +64,9 @@ body button {
 }
 
 #timerDiv {
-    font-size: 30px;
+    position: absolute;
+    right: 0;
+    margin-right: 20px;
 }
 
 #questionDiv {
