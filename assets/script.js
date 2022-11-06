@@ -28,29 +28,29 @@ var scoresArray = [];
 // Array of questions and answers
 var questionArray = [
   {
-    question: "Enter question #1 here?",
-    choices: ["A: isWrong", "B: isRight", "C: isWrong", "D: isWrong"],
+    question: "Which of the following is correct about JavaScript?",
+    choices: ["A: JavaScript is Assembly-language", "B: JavaScript is an Object-Based language", "C: JavaScript is an Object-Oriented language", "D: JavaScript is a High-level language"],
     answer: btnB
   },
   {
-    question: "Enter question #2 here?",
-    choices: ["A: isRight", "B: isWrong", "C: isWrong", "D: isWrong"],
+    question: "6. Arrays in JavaScript are defined by which of the following statements?",
+    choices: ["A: It is an ordered list of values", "B: It is an ordered list of objects", "C: It is an ordered list of string", "D: It is an ordered list of functions"],
     answer: btnA
   },
   {
-    question: "Enter question #3 here?",
-    choices: ["A: isWrong", "B: isRight", "C: isWrong", "D: isWrong"],
-    answer: btnB
+    question: "Which of the following is not javascript data types?",
+    choices: ["A: Null type", "B: Undefined type", "C: Number type", "D: All of the mentioned"],
+    answer: btnD
   },
   {
-    question: "Enter question #4 here?",
-    choices: ["A: isWrong", "B: isWrong", "C: isRight", "D: isWrong"],
+    question: "Which of the following methods is used to access HTML elements using Javascript?",
+    choices: ["A: getElementbyId()", "B: getElementsByClassName()", "C: Both A and B", "D: None of the above"],
     answer: btnC
   },
   {
-    question: "Enter question #5 here?",
-    choices: ["A: isWrong", "B: isWrong", "C: isWrong", "D: isRight"],
-    answer: btnD
+    question: "Which of the following methods is used to access HTML elements using Javascript?",
+    choices: ["A: stringify()", "B: parse()", "C: convert()", "D: None of the above"],
+    answer: btnA
   },
 ];
 
