@@ -208,7 +208,7 @@ saveBtn.addEventListener("click", function (event) {
   // Return from function early if submitted initialsInput is blank
   if (initialsInput.value === "") {
     return;
-  }
+  } else {
 
   // Add initials and score to scoresArray, clear the input
   scoresArray.push(userInfo);
@@ -216,7 +216,8 @@ saveBtn.addEventListener("click", function (event) {
 
   // Store updated scoresArray in localStorage, re-render the list
   storeScores();
-  renderArray();
+  goToScores();
+  }
 });
 
 // Clicking will make resultsPage
