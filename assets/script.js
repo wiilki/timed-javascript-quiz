@@ -12,7 +12,6 @@ var possibleAnsDiv = document.querySelector('#possibleAnsDiv');
 var isCorrect = $('#isCorrect');
 var userResultsDiv = document.querySelector('#userResultsDiv');
 var startOverBtn = document.querySelector('#startOverBtn');
-var initialsForm = document.querySelector("#initialsForm");
 var initialsInput = document.querySelector("#initialsInput");
 var saveBtn = document.querySelector("#saveBtn");
 var viewScoreBtn = document.querySelector('#viewScoreBtn')
@@ -178,7 +177,7 @@ possibleAnsDiv.addEventListener("click", function (event) {
     timeLeft = timeLeft - 10;
     isCorrect.textContent = "WRONG";
   }
-  $('#isCorrect').hide().html(isCorrect.textContent).fadeIn('slow').delay(2000).hide(1);
+  $('#isCorrect').hide().html(isCorrect.textContent).fadeIn('slow').delay(500).hide(3);
   nextQuestion();
 });
 
@@ -194,7 +193,9 @@ viewScoreBtn.addEventListener("click", function (event) {
   goToScores();
 });
 
-initialsForm.addEventListener("submit", function (event) {
+
+// Click save 
+saveBtn.addEventListener("click", function (event) {
   event.preventDefault();
 
   var userInfo = {
