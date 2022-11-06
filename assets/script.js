@@ -206,7 +206,7 @@ saveBtn.addEventListener("click", function (event) {
   };
 
   // Return from function early if submitted initialsInput is blank
-  if (initialsInput === "") {
+  if (initialsInput.value === "") {
     return;
   }
 
