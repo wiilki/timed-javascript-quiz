@@ -2,11 +2,11 @@
 
 ## Description
 
-This is a short timed quiz about Javascript. I created this project as a showcase for my Javascript skils. I wrote the code in a couple languages but tried my hard to keep my markup language code to a minimum.
+This is a short timed quiz about Javascript. I created this project to showcase my Javascript skils. I wrote the code in a couple languages but tried my hardest to keep my markup language code to a minimum and use JS for a majority of the page.
 
-I spent the most time on figuring out how to render an array of objects from local storage. Being my first time writing addEventListers, I had a difficult time keeping track of whether I should be editing the function or the addEventListener. Keeping track of the large number of variables was also tricky.
+I spent the most time figuring out how to render an array of objects from local storage. Being my first time writing addEventListers, I had a difficult time keeping track of whether I should be editing the function or the addEventListener. Keeping track of the large number of variables was also tricky.
 
-It took a lot of testing, re-write and even restarting. After finishing this project, I've learned that organization and planning early before trying to execute is important. It gives me a baseline, saves time and helps me keep my code straight to the point.
+It took a lot of testing, editing and I even restarted the project twice. After finishing this project, I've learned that organization and planning early before trying to execute is important. It gives me a baseline to work with, saves a ton of time and helps me keep my code straight to the point.
 
 Enjoy!
 
