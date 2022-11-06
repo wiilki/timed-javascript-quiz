@@ -9,16 +9,13 @@ a {
     color: black;
 }
 
-.main {
-    align-content: center;
+main {
+    display: flex;
+    justify-content: center;
     padding: 1px;
 }
 
-.d-flex {
-    display: flex;
-    justify-content: center;
-    top: 100px;
-}
+
 
 .card {
     min-height: 500px;
