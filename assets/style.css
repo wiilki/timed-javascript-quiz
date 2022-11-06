@@ -22,7 +22,7 @@ a {
 }
 
 .card {
-    height: 500px;
+    min-height: 500px;
     width: 100%;
     position: fixed;
     top: 130px;
@@ -31,11 +31,15 @@ a {
     text-align: center;
 }
 
+.card div {
+    padding: 20px;
+}
+
 body button {
     margin: 20px;
 }
 
-#startBtn {
+#startBtn, #scoresPage button, #saveBtn, #startOverBtn {
     width: 200px;
     align-self: center;
 }
@@ -50,11 +54,6 @@ body button {
     margin: 10px;
 }
 
-#startOverBtn {
-    width: 200px;
-    align-self: center;
-}
-
 #possibleAnsDiv {
     display: flex;
     flex-direction: column;
@@ -64,8 +63,10 @@ body button {
     animation-duration: 4s;
 }
 
-.card div {
-    padding: 20px;
+
+
+#timerDiv {
+    font-size: 30px;
 }
 
 #questionDiv {
@@ -75,11 +76,6 @@ body button {
 
 #possibleAnsDiv button {
     margin: 10px;
-}
-
-#scoresPage button {
-    width: 200px;
-    align-self: center;
 }
 
 #scoresPage ul {
