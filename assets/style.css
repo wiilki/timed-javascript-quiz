@@ -9,7 +9,6 @@ a {
     color: black;
 }
 
-
 .main {
     align-content: center;
     padding: 1px;
@@ -39,7 +38,10 @@ body button {
     margin: 20px;
 }
 
-#startBtn, #scoresPage button, #saveBtn, #startOverBtn {
+#startBtn,
+#scoresPage button,
+#saveBtn,
+#startOverBtn {
     width: 200px;
     align-self: center;
 }
@@ -78,7 +80,6 @@ body button {
 }
 
 #scoresPage ul {
-    margin: 20px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 20px;
     max-width: 500px;
