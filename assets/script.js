@@ -18,7 +18,7 @@ var saveBtn = document.querySelector("#saveBtn");
 var viewScoreBtn = document.querySelector('#viewScoreBtn')
 var scoresList = document.querySelector("#scoresList");
 var timerDiv = document.querySelector('#timerDiv');
-var goBackBtn = document.querySelector('#backBtn');
+var playAgainBtn = document.querySelector('#playAgainBtn');
 var startingTime = 300;
 var timeLeft = startingTime;
 var questionIndex = 0;
@@ -210,7 +210,7 @@ initialsForm.addEventListener("submit", function (event) {
 });
 
 // Clicking will make resultsPage
-goBackBtn.addEventListener("click", function (event) {
+playAgainBtn.addEventListener("click", function (event) {
   event.preventDefault();
   goToResults();
 });
