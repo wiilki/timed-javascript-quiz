@@ -232,7 +232,12 @@ init();
 
 var clearBtn = document.querySelector('#clearBtn');
 
+
+
+
 clearBtn.addEventListener("click", function (event) {
   event.preventDefault();
-  scoresList.innerHTML = "";
+  localStorage.clear();
+  scoresArray = [];
+  renderArray();
 });
