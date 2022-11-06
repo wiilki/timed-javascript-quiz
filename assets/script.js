@@ -9,7 +9,7 @@ var btnB = document.querySelector("#btnB");
 var btnC = document.querySelector("#btnC");
 var btnD = document.querySelector("#btnD");
 var possibleAnsDiv = document.querySelector('#possibleAnsDiv');
-var isCorrect = document.querySelector('#isCorrect');
+var isCorrect = $('#isCorrect');
 var userResultsDiv = document.querySelector('#userResultsDiv');
 var startOverBtn = document.querySelector('#startOverBtn');
 var initialsForm = document.querySelector("#initialsForm");
@@ -158,6 +158,7 @@ startBtn.addEventListener("click", function (event) {
   setTime();
 });
 
+
 // Event listener for each answer choice
 possibleAnsDiv.addEventListener("click", function (event) {
   event.preventDefault();
@@ -170,6 +171,7 @@ possibleAnsDiv.addEventListener("click", function (event) {
     timeLeft = timeLeft - 10;
     isCorrect.textContent = "WRONG";
   }
+  $('#isCorrect').hide().html(isCorrect.textContent).fadeIn('slow').delay(2000).hide(1);
   nextQuestion();
 });
 
