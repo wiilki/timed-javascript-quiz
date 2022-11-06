@@ -70,8 +70,6 @@ body button {
     font-weight: bold;
 }
 
-
-
 #possibleAnsDiv button {
     margin: 10px;
 }
@@ -82,4 +80,9 @@ body button {
     max-width: 500px;
     align-self: center;
     margin: 30px;
+}
+
+#initialsInput {
+    width: 100px;
+    align-self: center;
 }
