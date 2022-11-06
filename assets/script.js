@@ -135,7 +135,7 @@ function storeScores() {
 
 function init() {
   // Get stored scoresArray from localStorage
-  var storedscoresArray = JSON.parse(localStorage.getItem("scoresArray"));
+  var storedscoresArray = JSON.parse(localStorage.getItem("scores"));
   // If scoresArray were retrieved from localStorage, update the scoresArray array to it
   if (storedscoresArray !== null) {
     scoresArray = storedscoresArray;
@@ -223,5 +223,6 @@ playAgainBtn.addEventListener("click", function (event) {
   reStartQuiz();
 });
 
- console.log(scoresArray)
+ 
 init();
+console.log(scoresArray)
