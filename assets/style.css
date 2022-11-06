@@ -16,13 +16,27 @@ a {
 
 
 .card {
-    height: 400px;
+    height: 500px;
     width: 100%;
     position: fixed;
     top: 130px;
     padding: 50px;
     max-width: 1000px;
     text-align: center;
+}
+
+body button {
+    margin: 20px;
+}
+
+#startBtn {
+    width: 200px;
+    align-self: center;
+}
+
+#startOverBtn {
+    width: 200px;
+    align-self: center;
 }
 
 #possibleAnsDiv {
@@ -42,3 +56,4 @@ a {
 #possibleAnsDiv button {
     margin: 10px;
 }
+
