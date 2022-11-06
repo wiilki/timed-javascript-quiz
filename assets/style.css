@@ -61,9 +61,8 @@ body button {
 
 #isCorrect {
     animation-duration: 4s;
+    font-size: 30px;
 }
-
-
 
 #timerDiv {
     font-size: 30px;

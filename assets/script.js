@@ -54,30 +54,17 @@ var questionArray = [
   },
 ];
 
-
 // Start by hiding the all pages except Start Page
 quizPage.style.visibility = 'hidden';
 resultPage.style.visibility = 'hidden';
 scoresPage.style.visibility = 'hidden';
 
+// Makes start page visible
 function goToStart() {
   startPage.style.visibility = 'visible';
   quizPage.style.visibility = 'hidden';
   scoresPage.style.visibility = 'hidden';
   resultPage.style.visibility = 'hidden';
-}
-
-// Makes quizPage visible
-function startQuiz() {
-  startPage.style.visibility = 'hidden';
-  resultPage.style.visibility = 'hidden';
-  scoresPage.style.visibility = 'hidden';
-  quizPage.style.visibility = 'visible';
-  questionDiv.textContent = questionArray[questionIndex].question;
-  btnA.textContent = questionArray[questionIndex].choices[0];
-  btnB.textContent = questionArray[questionIndex].choices[1];
-  btnC.textContent = questionArray[questionIndex].choices[2];
-  btnD.textContent = questionArray[questionIndex].choices[3];
 }
 
 // Makes Results Page appear
@@ -95,6 +82,19 @@ function goToScores() {
   resultPage.style.visibility = 'hidden';
   quizPage.style.visibility = 'hidden';
   scoresPage.style.visibility = 'visible';
+}
+
+// Makes quizPage and questions visible
+function startQuiz() {
+  startPage.style.visibility = 'hidden';
+  resultPage.style.visibility = 'hidden';
+  scoresPage.style.visibility = 'hidden';
+  quizPage.style.visibility = 'visible';
+  questionDiv.textContent = questionArray[questionIndex].question;
+  btnA.textContent = questionArray[questionIndex].choices[0];
+  btnB.textContent = questionArray[questionIndex].choices[1];
+  btnC.textContent = questionArray[questionIndex].choices[2];
+  btnD.textContent = questionArray[questionIndex].choices[3];
 }
 
 // Moves to next index of questions then recalls startQuiz func
@@ -117,13 +117,15 @@ function reStartQuiz() {
   goToStart();
 }
 
+// Renders array and appends li for each object
 function renderArray() {
   scoresList.innerHTML = "";
 
-  // Render a new li for each score
+  // Render a new li for each score for the length of the array
   for (var i = 0; i < scoresArray.length; i++) {
     var score = scoresArray[i];
     var showInitials = score.userInitials;
+    // Makes initials uppercase
     var initialsUpper = showInitials.toUpperCase();
     var showScores = score.userScore;
     var li = document.createElement("li");
@@ -133,20 +135,9 @@ function renderArray() {
   }
 }
 
+// Save data to local storage
 function storeScores() {
   localStorage.setItem("scores", JSON.stringify(scoresArray));
-}
-
-function init() {
-  // Get stored scoresArray from localStorage
-  var storedscoresArray = JSON.parse(localStorage.getItem("scores"));
-  // If scoresArray were retrieved from localStorage, update the scoresArray array to it
-  if (storedscoresArray !== null) {
-    scoresArray = storedscoresArray;
-  }
-  
-  renderArray();
-  console.log(scoresArray)
 }
 
 // Set time interval to 1s
@@ -169,7 +160,6 @@ startBtn.addEventListener("click", function (event) {
   startQuiz();
   setTime();
 });
-
 
 // Event listener for each answer choice
 possibleAnsDiv.addEventListener("click", function (event) {
@@ -199,32 +189,24 @@ viewScoreBtn.addEventListener("click", function (event) {
   goToScores();
 });
 
-
-// Click save 
+// Click save will assign values to keys if value is not blank and add to array
 saveBtn.addEventListener("click", function (event) {
   event.preventDefault();
-
   var userInfo = {
     userInitials: initialsInput.value,
     userScore: currentScore.valueOf(),
   };
-
-  // Return from function early if submitted initialsInput is blank
   if (initialsInput.value === "") {
     return;
   } else {
-
-  // Add initials and score to scoresArray, clear the input
-  scoresArray.push(userInfo);
-  initialsInput.value = "";
-
-  // Store updated scoresArray in localStorage, re-render the list
-  storeScores();
-  goToScores();
+    scoresArray.push(userInfo);
+    initialsInput.value = "";
+    storeScores();
+    goToScores();
   }
 });
 
-// Clicking will make resultsPage
+// Clicking will go to start page
 playAgainBtn.addEventListener("click", function (event) {
   event.preventDefault();
   reStartQuiz();
@@ -237,5 +219,17 @@ clearBtn.addEventListener("click", function (event) {
   scoresArray = [];
   renderArray();
 });
+
+function init() {
+  // Get stored scoresArray from localStorage
+  var storedscoresArray = JSON.parse(localStorage.getItem("scores"));
+  // If scoresArray were retrieved from localStorage, update the scoresArray array to it
+  if (storedscoresArray !== null) {
+    scoresArray = storedscoresArray;
+  }
+
+  renderArray();
+  console.log(scoresArray)
+}
 
 init();
