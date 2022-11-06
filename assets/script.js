@@ -19,7 +19,7 @@ var scoresList = document.querySelector("#scoresList");
 var timerDiv = document.querySelector('#timerDiv');
 var playAgainBtn = document.querySelector('#playAgainBtn');
 var clearBtn = document.querySelector('#clearBtn');
-var startingTime = 60;
+var startingTime = 10;
 var timeLeft = startingTime;
 var questionIndex = 0;
 var currentScore = 0;
@@ -149,6 +149,7 @@ function setTime() {
     if (timeLeft === 0 || questionIndex >= questionArray.length) {
       clearInterval(timerInterval);
       timerDiv.textContent = "YOU'RE ALL DONE!";
+      timeLeft = 0;
       goToResults();
     }
   }, 1000);
