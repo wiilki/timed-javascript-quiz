@@ -18,7 +18,7 @@ main {
 .card {
     max-height: fit-content;
     width: 100%;
-    position: fixed;
+    position: absolute;
     top: 130px;
     padding: 50px;
     max-width: 1000px;
@@ -69,6 +69,8 @@ body button {
     font-size: 25px;
     font-weight: bold;
 }
+
+
 
 #possibleAnsDiv button {
     margin: 10px;
