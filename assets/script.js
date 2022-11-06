@@ -167,6 +167,7 @@ possibleAnsDiv.addEventListener("click", function (event) {
     isCorrect.textContent = "RIGHT";
     currentScore++;
   } else {
+    timeLeft = timeLeft - 10;
     isCorrect.textContent = "WRONG";
   }
   nextQuestion();

@@ -22,13 +22,13 @@
 
     <main class="d-flex p-2">
         <!-- Start Page -->
-        <section id="startPage" class="card">
+        <section id="startPage" class="card" >
             <h1 id="rulesDiv">Rules of the Quiz</h1>
-            <ul>
-                <li>You start with __ seconds</li>
-                <li> __ seconds will be deducted for wrong answers</li>
-                <li>You can only select an answer once</li>
-                <li>Save you score to view your progress!</li>
+            <ul class="list-group">
+                <li class="list-group-item">You start with __ seconds</li>
+                <li class="list-group-item"> __ seconds will be deducted for wrong answers</li>
+                <li class="list-group-item">You can only select an answer once</li>
+                <li class="list-group-item">Save you score to view your progress!</li>
             </ul>
             <button id="startBtn" class="btn btn-danger">Start</button>
         </section>
@@ -40,10 +40,10 @@
             </form>
             <div id="questionDiv">Question #</div>
             <div id="possibleAnsDiv">
-                <button id="btnA" class="btn btn-outline-dark">A: possible answer</button>
-                <button id="btnB" class="btn btn-outline-dark">B: possible answer</button>
-                <button id="btnC" class="btn btn-outline-dark">C: possible answer</button>
-                <button id="btnD" class="btn btn-outline-dark">D: possible answer</button>
+                <button id="btnA" class="btn btn-success">A: possible answer</button>
+                <button id="btnB" class="btn btn-success">B: possible answer</button>
+                <button id="btnC" class="btn btn-success">C: possible answer</button>
+                <button id="btnD" class="btn btn-success">D: possible answer</button>
             </div>
             <p id="isCorrect"></p>
         </section>
@@ -69,6 +69,7 @@
             <button id="clearBtn">Clear High Scores</button>
         </section>
     </main>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="./assets/script.js"></script>
 </body>
 

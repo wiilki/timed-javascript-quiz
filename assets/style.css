@@ -39,6 +39,12 @@ body button {
     align-self: center;
 }
 
+.list-group {
+    max-width: 500px;
+    align-self: center;
+    margin: 30px;
+}
+
 #startOverBtn {
     width: 200px;
     align-self: center;
@@ -47,6 +53,10 @@ body button {
 #possibleAnsDiv {
     display: flex;
     flex-direction: column;
+}
+
+#isCorrect {
+    animation-duration: 4s;
 }
 
 .card div{
