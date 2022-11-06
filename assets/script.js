@@ -18,7 +18,8 @@ var viewScoreBtn = document.querySelector('#viewScoreBtn')
 var scoresList = document.querySelector("#scoresList");
 var timerDiv = document.querySelector('#timerDiv');
 var playAgainBtn = document.querySelector('#playAgainBtn');
-var startingTime = 300;
+var clearBtn = document.querySelector('#clearBtn');
+var startingTime = 60;
 var timeLeft = startingTime;
 var questionIndex = 0;
 var currentScore = 0;
@@ -226,18 +227,12 @@ playAgainBtn.addEventListener("click", function (event) {
   reStartQuiz();
 });
 
- 
-init();
-
-
-var clearBtn = document.querySelector('#clearBtn');
-
-
-
-
+// Clear button will clear local storage and current scoresArray, then re-render
 clearBtn.addEventListener("click", function (event) {
   event.preventDefault();
   localStorage.clear();
   scoresArray = [];
   renderArray();
 });
+
+init();

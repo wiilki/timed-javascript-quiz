@@ -39,10 +39,14 @@ body button {
     align-self: center;
 }
 
-.list-group {
+#rulesGroup {
     max-width: 500px;
     align-self: center;
     margin: 30px;
+}
+
+#rules {
+    margin: 10px;
 }
 
 #startOverBtn {
