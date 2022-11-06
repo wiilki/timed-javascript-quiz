@@ -9,7 +9,7 @@ a {
     color: black;
 }
 
-main {
+.p-2 {
     display: flex;
     justify-content: center;
     padding: 1px;
