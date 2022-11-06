@@ -86,4 +86,7 @@ body button {
     margin: 20px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 20px;
+    max-width: 500px;
+    align-self: center;
+    margin: 30px;
 }

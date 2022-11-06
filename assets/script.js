@@ -124,9 +124,10 @@ function renderArray() {
   for (var i = 0; i < scoresArray.length; i++) {
     var score = scoresArray[i];
     var showInitials = score.userInitials;
+    var initialsUpper = showInitials.toUpperCase();
     var showScores = score.userScore;
     var li = document.createElement("li");
-    li.textContent = showInitials + ": " + showScores;
+    li.textContent = initialsUpper + ": " + showScores;
     li.setAttribute("data-index", i);
     scoresList.appendChild(li);
   }
