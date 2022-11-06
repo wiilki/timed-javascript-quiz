@@ -33,7 +33,7 @@ var questionArray = [
     answer: btnB
   },
   {
-    question: "6. Arrays in JavaScript are defined by which of the following statements?",
+    question: "Arrays in JavaScript are defined by which of the following statements?",
     choices: ["A: It is an ordered list of values", "B: It is an ordered list of objects", "C: It is an ordered list of string", "D: It is an ordered list of functions"],
     answer: btnA
   },
