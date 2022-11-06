@@ -60,6 +60,13 @@ quizPage.style.visibility = 'hidden';
 resultPage.style.visibility = 'hidden';
 scoresPage.style.visibility = 'hidden';
 
+function goToStart() {
+  startPage.style.visibility = 'visible';
+  quizPage.style.visibility = 'hidden';
+  scoresPage.style.visibility = 'hidden';
+  resultPage.style.visibility = 'hidden';
+}
+
 // Makes quizPage visible
 function startQuiz() {
   startPage.style.visibility = 'hidden';
@@ -107,7 +114,7 @@ function reStartQuiz() {
   questionIndex = 0;
   currentScore = 0;
   setTime();
-  startQuiz();
+  goToStart();
 }
 
 function renderArray() {
@@ -212,7 +219,7 @@ initialsForm.addEventListener("submit", function (event) {
 // Clicking will make resultsPage
 playAgainBtn.addEventListener("click", function (event) {
   event.preventDefault();
-  goToResults();
+  reStartQuiz();
 });
 
  console.log(scoresArray)
