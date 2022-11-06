@@ -22,7 +22,7 @@
 
     <main class="d-flex p-2">
         <!-- Start Page -->
-        <section id="startPage" class="card" >
+        <section id="startPage" class="card">
             <h1 id="rulesDiv">Rules of the Quiz</h1>
             <ul class="list-group">
                 <li class="list-group-item">You start with __ seconds</li>
@@ -34,22 +34,20 @@
         </section>
 
         <!-- Quiz Page -->
-        <section id="quizPage"  class="card">
-            <form class="container-fluid justify-content-end">
-                <div id="timerDiv"></div>
-            </form>
+        <section id="quizPage" class="card">
+            <div id="timerDiv"></div>
             <div id="questionDiv">Question #</div>
             <div id="possibleAnsDiv">
-                <button id="btnA" class="btn btn-success">A: possible answer</button>
-                <button id="btnB" class="btn btn-success">B: possible answer</button>
-                <button id="btnC" class="btn btn-success">C: possible answer</button>
-                <button id="btnD" class="btn btn-success">D: possible answer</button>
+                <button id="btnA" class="btn btn-outline-primary">A: possible answer</button>
+                <button id="btnB" class="btn btn-outline-primary">B: possible answer</button>
+                <button id="btnC" class="btn btn-outline-primary">C: possible answer</button>
+                <button id="btnD" class="btn btn-outline-primary">D: possible answer</button>
             </div>
             <p id="isCorrect"></p>
         </section>
 
         <!-- Results Page -->
-        <section id="resultPage"  class="card">
+        <section id="resultPage" class="card">
             <h1>ALL DONE!</h1>
             <label for="userResultsDiv">Your score: </label>
             <p id="userResultsDiv"></p>
@@ -62,11 +60,11 @@
         </section>
 
         <!-- High Score Page -->
-        <section id="scoresPage"  class="card">
+        <section id="scoresPage" class="card">
             <h1>Previous scores: </h1>
             <ul id="scoresList"></ul>
-            <button id="backBtn">Go Back</button>
-            <button id="clearBtn">Clear High Scores</button>
+            <button id="backBtn" class="btn btn-success">Go Back</button>
+            <button id="clearBtn" class="btn btn-danger">Clear High Scores</button>
         </section>
     </main>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

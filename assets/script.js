@@ -141,7 +141,7 @@ function init() {
 function setTime() {
   var timerInterval = setInterval(function () {
     timeLeft--;
-    timerDiv.textContent = "Seconds left: " + timeLeft;
+    timerDiv.textContent = "Time left: " + timeLeft + " seconds";
     // Message for if time runs out or user finishes quiz
     if (timeLeft === 0 || questionIndex >= questionArray.length) {
       clearInterval(timerInterval);
