@@ -64,7 +64,7 @@ body button {
     animation-duration: 4s;
 }
 
-.card div{
+.card div {
     padding: 20px;
 }
 
@@ -78,6 +78,12 @@ body button {
 }
 
 #scoresPage button {
-        width: 200px;
-        align-self: center;    
+    width: 200px;
+    align-self: center;
+}
+
+#scoresPage ul {
+    margin: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
 }

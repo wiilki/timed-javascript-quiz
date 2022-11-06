@@ -123,8 +123,10 @@ function renderArray() {
   // Render a new li for each score
   for (var i = 0; i < scoresArray.length; i++) {
     var score = scoresArray[i];
+    var showInitials = score.userInitials;
+    var showScores = score.userScore;
     var li = document.createElement("li");
-    li.textContent = Object.values(score);
+    li.textContent = showInitials + ": " + showScores;
     li.setAttribute("data-index", i);
     scoresList.appendChild(li);
   }
