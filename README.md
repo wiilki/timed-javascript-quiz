@@ -26,5 +26,5 @@ Enjoy!
 
 ## Credits
 
-[Bootstrap](https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css)
-[Jquery](https://code.jquery.com/jquery-3.5.1.min.js)
+* [Bootstrap](https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css)
+* [Jquery](https://code.jquery.com/jquery-3.5.1.min.js)
