@@ -121,9 +121,9 @@ function renderArray() {
 
   // Render a new li for each score
   for (var i = 0; i < scoresArray.length; i++) {
-    var score = scoresArray[i].value;
+    var score = scoresArray[i];
     var li = document.createElement("li");
-    li.textContent = score;
+    li.textContent = Object.values(score);
     li.setAttribute("data-index", i);
     scoresList.appendChild(li);
   }
@@ -140,7 +140,9 @@ function init() {
   if (storedscoresArray !== null) {
     scoresArray = storedscoresArray;
   }
+  
   renderArray();
+  console.log(scoresArray)
 }
 
 // Set time interval to 1s
@@ -225,4 +227,3 @@ playAgainBtn.addEventListener("click", function (event) {
 
  
 init();
-console.log(scoresArray)
