@@ -189,14 +189,21 @@ viewScoreBtn.addEventListener("click", function (event) {
   goToScores();
 });
 
+var invalidMsgDiv = document.querySelector('#invalidMsgDiv');
+
 // Click save will assign values to keys if value is not blank and add to array
 saveBtn.addEventListener("click", function (event) {
   event.preventDefault();
+  invalidMsgDiv.innerHTML = "";
   var userInfo = {
     userInitials: initialsInput.value,
     userScore: currentScore.valueOf(),
   };
   if (initialsInput.value === "") {
+    invalidMsgDiv.append("Cannot be blank!");
+    return;
+  } else if (currentScore === 0){
+    invalidMsgDiv.append("You scored a 0. Try again!");
     return;
   } else {
     scoresArray.push(userInfo);
