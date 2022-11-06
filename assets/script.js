@@ -228,3 +228,11 @@ playAgainBtn.addEventListener("click", function (event) {
 
  
 init();
+
+
+var clearBtn = document.querySelector('#clearBtn');
+
+clearBtn.addEventListener("click", function (event) {
+  event.preventDefault();
+  scoresList.innerHTML = "";
+});
