@@ -1,5 +1,6 @@
 nav {
     display: inline-flex;
+    position: fixed;
     width: 100%;
     font-weight: bold;
     font-size: 15px;
