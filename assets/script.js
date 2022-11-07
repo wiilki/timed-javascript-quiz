@@ -19,6 +19,7 @@ var scoresList = document.querySelector("#scoresList");
 var timerDiv = document.querySelector('#timerDiv');
 var playAgainBtn = document.querySelector('#playAgainBtn');
 var clearBtn = document.querySelector('#clearBtn');
+var invalidMsgDiv = document.querySelector('#invalidMsgDiv');
 var startingTime = 60;
 var timeLeft = startingTime;
 var questionIndex = 0;
@@ -176,6 +177,7 @@ possibleAnsDiv.addEventListener("click", function (event) {
     timeLeft = timeLeft - 10;
     isCorrect.textContent = "WRONG";
   }
+  // Jquery to make isCorrect message go away
   $('#isCorrect').hide().html(isCorrect.textContent).fadeIn('slow').delay(500).hide(3);
   nextQuestion();
 });
@@ -192,7 +194,7 @@ viewScoreBtn.addEventListener("click", function (event) {
   goToScores();
 });
 
-var invalidMsgDiv = document.querySelector('#invalidMsgDiv');
+
 
 // Click save will assign values to keys if value is not blank and add to array
 saveBtn.addEventListener("click", function (event) {
