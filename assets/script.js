@@ -145,11 +145,15 @@ function setTime() {
   var timerInterval = setInterval(function () {
     timeLeft--;
     timerDiv.textContent = "Time left: " + timeLeft + " seconds";
+
+    viewScoreBtn.style.display = "none";
+
     // Message for if time runs out or user finishes quiz
     if (timeLeft === 0 || questionIndex >= questionArray.length) {
       clearInterval(timerInterval);
       timerDiv.textContent = "YOU'RE ALL DONE!";
       timeLeft = 0;
+      viewScoreBtn.style.display = "initial";
       goToResults();
     }
   }, 1000);
@@ -203,7 +207,7 @@ saveBtn.addEventListener("click", function (event) {
   if (initialsInput.value === "") {
     invalidMsgDiv.append("Cannot be blank!");
     return;
-  } else if (currentScore === 0){
+  } else if (currentScore === 0) {
     invalidMsgDiv.append("You scored a 0. Try again!");
     return;
   } else {

@@ -5,6 +5,7 @@ nav {
     font-weight: bold;
     font-size: 15px;
     z-index: 1;
+    height: 55px;
 }
 
 a {
