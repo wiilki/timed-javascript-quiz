@@ -1,0 +1,49 @@
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.App-container {
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.809);
+  border-radius: 10px;
+  background-image: url('https://www.thoughtco.com/thmb/EV-FlBpaeZxvg_L3KudHhj_YTZs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/JavaScript-58acbb8a3df78c345bad32c2.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 20px;
+  margin: 20px;
+  width: 700px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App-container > *{
+  padding: 20px;
+  text-align: center; 
+}
+
+.game-over button, .high-scores button, .start-screen button, .quiz button, button {
+  margin: 10px; 
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px black;
+  padding: 10px 20px;
+  border: none;
+  background-color: white;
+  transition: background-color 0.3s ease;
+  font-weight: 600;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: rgb(244, 255, 120);
+}
