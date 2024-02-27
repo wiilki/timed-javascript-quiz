@@ -22,7 +22,7 @@ Enjoy!
  * Click "View High Scores" to view previous scores
  * Play again or clear past scores
 
-![Screenshot](assets/screenshot.png)
+![image](https://github.com/wiilki/timed-javascript-quiz-wk/assets/114313171/df5e19ae-1799-44b4-9ae3-a9f473e9259e)
 
 ## Credits
 
