@@ -12,7 +12,7 @@ Enjoy!
 
 ## Usage
 
- * Click red "Start" button to begin.
+ * Click "Start" button to begin.
  * Answer questions to quiz
  * Complete form to save your score
  * Click "View High Scores" to view previous scores
@@ -20,7 +20,3 @@ Enjoy!
 
 ![image](https://github.com/wiilki/timed-javascript-quiz-wk/assets/114313171/df5e19ae-1799-44b4-9ae3-a9f473e9259e)
 
-## Credits
-
-* [Bootstrap](https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css)
-* [Jquery](https://code.jquery.com/jquery-3.5.1.min.js)
